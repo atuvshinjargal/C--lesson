@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp5
+namespace WindowsFormsApp6
 {
     public partial class Form1 : Form
     {
@@ -19,25 +19,21 @@ namespace WindowsFormsApp5
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int i, s;
-            label1.Text = "PN=";
-            for (i = 2; i < 1000; i++)
-            { //i=2, 3, 4, 5, 6, 7, 8, 9 
-                s = 0;
-                for (int j = 2; j < i; j++)
-                {//j=2; 2,3; 2,3,4; 2,3,4,5; .....
-                    if (i % j == 0)
+            int i, a=10;
+            for (a = 0; a < (int)numericUpDown1.Value; a++)
+            {
+                for (i = 2; i < a; i++)
+                { //i=0,1,2,3,4,5,6,7,8,9
+                    if (a % i == 0) //ene nuhtsul bielne gedeg bol huvaagdaj baina gesen ug.
                     {
-                        s++;
                         break;
                     }
                 }
-                if (s == 0)
+                if (i == a)
                 {
-                    label1.Text += i.ToString();
-                    label1.Text += ";";
-                }  
-            }
+                    listBox1.Items.Add(i);
+                }
+            } 
         }
     }
 }
